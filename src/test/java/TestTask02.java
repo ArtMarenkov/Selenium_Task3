@@ -1,13 +1,10 @@
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
-import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
-import org.openqa.selenium.WebElement;
 import pages.InsurancePage_1;
 import pages.InsurancePage_2;
 import pages.MainPage;
 import pages.TravelInsurancePage;
-import sun.applet.Main;
 
 public class TestTask02 extends BaseTest {
 
@@ -22,9 +19,9 @@ public class TestTask02 extends BaseTest {
 
         new TravelInsurancePage(driver).checkout.click();  // Нажатие на "Оформить онлайн"
 
-        Assertions.assertTrue(driver.findElement(By.xpath("//div/h3[contains(text(),'Минимальная')]/..")).getAttribute("class").contains("selected")); //Проверка, что выбрана "Минимальная"
-
-        new InsurancePage_1(driver).chechoutInsurance.click(); // Нажатие на "Оформить"
+        InsurancePage_1 insurancePage_1 = new InsurancePage_1(driver);
+        Assertions.assertTrue(insurancePage_1.minCheck.getAttribute("class").contains("selected")); //Проверка, что выбрана "Минимальная"
+        insurancePage_1.chechoutInsurance.click(); // Нажатие на "Оформить"
 
         InsurancePage_2 insurancePage_2 = new InsurancePage_2(driver);
 

@@ -7,11 +7,11 @@ public class TestProperties {
     private static TestProperties INSTANCE = null;
 
     private TestProperties() {
-//        System.setProperty("environment", "application");
+
         try {
             ClassLoader classLoader = TestProperties.class.getClassLoader();
             properties.load(classLoader.getResourceAsStream("environment.properties"));
-            //properties.load(new FileInputStream(new File("environment.properties" + System.getProperty("environment") + ".properties")));
+
         } catch (IOException e) {
             e.printStackTrace();
         }
